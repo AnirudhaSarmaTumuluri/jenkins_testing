@@ -1,7 +1,9 @@
 
 
 pipeline {
-    agent { node {
+    agent { docker { image 'python:3.10.7-alpine' } }
+    stages {
+        node {
             def remote = [:]
             remote.name = 'less'
             remote.host = 'less.cs.rutgers.edu'
@@ -12,9 +14,7 @@ pipeline {
                 sshCommand remote: remote, command: "ls -lrt"
                 sshCommand remote: remote, command: "for i in {1..5}; do echo -n \"Loop \$i \"; date ; sleep 1; done"
             }
-            } 
-    }
-    stages {
+        } 
         stage('build') {
             steps {
                 sh 'pwd'
