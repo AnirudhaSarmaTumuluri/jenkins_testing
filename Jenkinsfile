@@ -1,8 +1,7 @@
 
 
 pipeline {
-    agent { docker { image 'python:3.10.7-alpine' } }
-    stages {
+    agent { docker { image 'python:3.10.7-alpine' } 
         node {
             def remote = [:]
             remote.name = 'less'
@@ -15,11 +14,6 @@ pipeline {
                 sshCommand remote: remote, command: "for i in {1..5}; do echo -n \"Loop \$i \"; date ; sleep 1; done"
             }
         } 
-        stage('build') {
-            steps {
-                sh 'pwd'
-                
-            }
-        }
+       
     }
 }
