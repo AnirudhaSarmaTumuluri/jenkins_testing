@@ -3,7 +3,7 @@ node {
   remote.name = 'java'
   remote.host = 'java.cs.rutgers.edu'
   remote.user = 'at1341'
-  remote.password = 'blablacar9704'
+  remote.password = '<password>'
   remote.allowAnyHosts = true
   stage('Remote SSH') {
     // sshCommand remote: remote, command: "ls -lrt"
