@@ -6,7 +6,10 @@ pipeline {
         stage('build') {
             steps {
                 sh 'pwd'
-
+                dir ('~')
+                {
+                    sh 'pwd'
+                }
             }
         }
     }
