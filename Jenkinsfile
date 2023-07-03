@@ -1,5 +1,5 @@
 node {
-  checkout smc;
+  checkout scm;
   def remote = [:]
   remote.name = 'java'
   remote.host = 'java.cs.rutgers.edu'
