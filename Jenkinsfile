@@ -12,6 +12,7 @@ node {
     // sshPut remote: remote, from: 'src/shell/newcrontab', into: '.'
     // sh 'ls -LR';
     // sh 'cat src/shell/cron_job1.sh'
+    sh 'cat src/crontabs/newcrontab.txt'
 
   }
 }
