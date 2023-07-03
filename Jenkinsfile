@@ -5,8 +5,9 @@ node {
   remote.user = 'at1341'
   withCredentials([string(credentialsId: 'JAVA_CS_RUTGERS_PASS', variable: 'SECRET')]) { //set SECRET with the credential content
         echo "My secret text is '${SECRET}'"
-    }
-  remote.password = 'blablacar9704'
+    
+  remote.password = "'${SECRET}'"
+  }
   remote.allowAnyHosts = true
   stage('Remote SSH') {
     // sshCommand remote: remote, command: "ls -lrt"
