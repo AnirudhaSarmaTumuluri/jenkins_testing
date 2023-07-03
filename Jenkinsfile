@@ -3,7 +3,7 @@ node {
   remote.name = 'java'
   remote.host = 'java.cs.rutgers.edu'
   remote.user = 'at1341'
-  withCredentials([string(credentialsId: 'my-secret', variable: 'JAVA_CS_RUTGERS_PASS')]) { //set SECRET with the credential content
+  withCredentials([string(credentialsId: 'JAVA_CS_RUTGERS_PASS', variable: 'my-secret')]) { //set SECRET with the credential content
         remote.password = $my-secret
     }
   remote.allowAnyHosts = true
