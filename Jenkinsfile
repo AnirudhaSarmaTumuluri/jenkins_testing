@@ -1,11 +1,13 @@
 node {
+  withCredentials([string(credentialsId: 'JAVA_CS_RUTGERS_PASS', variable: 'my-secret')])
+  {
   def remote = [:]
   remote.name = 'java'
   remote.host = 'java.cs.rutgers.edu'
   remote.user = 'at1341'
-  withCredentials([string(credentialsId: 'JAVA_CS_RUTGERS_PASS', variable: 'my-secret')]) { //set SECRET with the credential content
+   //set SECRET with the credential content
         remote.password = $my-secret
-    }
+    
   remote.allowAnyHosts = true
   stage('Remote SSH') {
     // sshCommand remote: remote, command: "ls -lrt"
@@ -15,5 +17,6 @@ node {
     sh 'ls -LR';
     sh 'cat src/shell/cron_job1.sh'
 
+  }
   }
 }
