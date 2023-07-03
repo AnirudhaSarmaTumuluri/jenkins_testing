@@ -1,4 +1,5 @@
 node {
+  checkout smc;
   def remote = [:]
   remote.name = 'java'
   remote.host = 'java.cs.rutgers.edu'
@@ -7,10 +8,7 @@ node {
   remote.allowAnyHosts = true
   stage('Testing local directory')
   {
-    sh 'ls -LR';
     sh 'pwd';
-    sh 'cat src/shell/cron_job1.sh';
-    sh 'cat src/crontabs/newcrontab.txt';
   }
   stage('Remote SSH') {
     sshCommand remote: remote, command: "ls -lrt"
