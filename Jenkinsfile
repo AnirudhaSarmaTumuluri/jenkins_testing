@@ -11,7 +11,7 @@ node {
     // sshCommand remote: remote, command: "(crontab -l && echo \"* * * * * echo \"Initiated from Jenkins.\" >> /common/users/at1341/testing_cron/outputs/out2.txt\") | crontab -"
     // sshPut remote: remote, from: 'src/shell/newcrontab', into: '.'
     sh 'ls -la';
-    // sh 'cat src/shell/cron_job1.sh'
+    sh 'cat src/shell/cron_job1.sh'
     sh 'cat src/crontabs/newcrontab.txt'
 
   }
