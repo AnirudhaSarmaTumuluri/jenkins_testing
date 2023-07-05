@@ -6,8 +6,8 @@ node {
   def remote = [:]
   remote.name = 'java'
   remote.host = 'java.cs.rutgers.edu'
-  remote.user = creds_USR
-  remote.password = creds_PSW
+  remote.user = $creds_USR
+  remote.password = $creds_PSW
   remote.allowAnyHosts = true
 
   stage('Remote SSH') {
