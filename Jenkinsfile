@@ -1,5 +1,5 @@
 node {
-  withCredentials([sshUserPrivateKey(credentialsId: 'JAVA_RUTGERS', usernameVariable: 'uName', passwordVariable: 'pass')])
+  withCredentials([usernamePassword(credentialsId: 'JAVA_RUTGERS', usernameVariable: 'uName', passwordVariable: 'pass')])
   {
   checkout scm
   def remote = [:]
