@@ -5,7 +5,7 @@ node {
   def remote = [:]
   remote.name = 'java'
   remote.host = 'java.cs.rutgers.edu'
-  remote.user = 'at1341'
+  remote.user = uName
   remote.allowAnyHosts = true
 
   stage('Remote SSH') {
