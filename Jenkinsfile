@@ -8,8 +8,8 @@ def ChangeCrontab(creds_ID, hostname, hostaddress, crontab_name)
     remote.user = uName
     remote.password = pass
     remote.allowAnyHosts = true
-    sshPut remote: remote, from: '/src/crontabs/'+crontab_name, into: '/common/users/at1341/testing_cron'
-    sshCommand remote: remote, command: "crontab < /common/users/at1341/testing_cron/"+crontab_name
+    sshPut remote: remote, from: "/src/crontabs/${crontab_name}", into: '/common/users/at1341/testing_cron'
+    sshCommand remote: remote, command: "crontab < /common/users/at1341/testing_cron/${crontab_name}"
 
   }
 }
