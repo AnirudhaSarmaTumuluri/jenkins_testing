@@ -20,7 +20,8 @@ node
   stage('Reading YAML')
   {
     def configVal = readYaml file: "servers/config.yaml"
-    echo configVal['servers'].size()
+    length = configVal['servers'].size()
+    echo "$length"
     // echo "configVal: " + configVal
   }
   //Server 1
