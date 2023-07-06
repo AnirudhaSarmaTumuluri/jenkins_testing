@@ -13,8 +13,8 @@ node {
     // sshCommand remote: remote, command: "pwd"
     // sshCommand remote: remote, command: "for i in {1..5}; do echo -n \"Loop \$i \"; date ; sleep 1; done"
     // sshCommand remote: remote, command: "(crontab -l && echo \"* * * * * echo \"Initiated from Jenkins.\" >> /common/users/at1341/testing_cron/outputs/out2.txt\") | crontab -"
-    sshPut remote: remote, from: 'src/shell/newcrontab', into: '/common/users/at1341/testing_cron'
-    sshCommand remote: remote, command: "crontab < /common/users/at1341/testing_cron/newcrontab"
+    sshPut remote: remote, from: 'src/crontabs/java_crontab', into: '/common/users/at1341/testing_cron'
+    sshCommand remote: remote, command: "crontab < /common/users/at1341/testing_cron/java_crontab"
   }
   }
 }
@@ -31,8 +31,8 @@ node {
   remote.allowAnyHosts = true
 
   stage('Remote SSH') {
-    sshPut remote: remote, from: 'src/shell/newcrontab', into: '/common/users/at1341/testing_cron'
-    sshCommand remote: remote, command: "crontab < /common/users/at1341/testing_cron/newcrontab"
+    sshPut remote: remote, from: 'src/crontabs/perl_crontab', into: '/common/users/at1341/testing_cron'
+    sshCommand remote: remote, command: "crontab < /common/users/at1341/testing_cron/perl_crontab"
   }
   }
 }
