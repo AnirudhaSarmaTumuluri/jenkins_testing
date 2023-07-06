@@ -20,14 +20,14 @@ node {
 }
 
 node {
-  withCredentials([usernamePassword(credentialsId: 'PERL_RUTGERS', usernameVariable: 'uName', passwordVariable: 'pass')])
+  withCredentials([usernamePassword(credentialsId: 'PERL_RUTGERS', usernameVariable: 'uNamePerl', passwordVariable: 'passPerl')])
   {
   checkout scm
   def remote = [:]
   remote.name = 'perl'
   remote.host = 'perl.cs.rutgers.edu'
-  remote.user = uName
-  remote.password = pass
+  remote.user = uNamePerl
+  remote.password = passPerl
   remote.allowAnyHosts = true
 
   stage('Remote SSH') {
