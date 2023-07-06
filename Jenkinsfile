@@ -1,3 +1,20 @@
+def ChangeCrontab(creds_ID, hostname, hostaddress)
+{
+  withCredentials([usernamePassword(credentialsId: creds_ID, usernameVariable: 'uName', passwordVariable: 'pass')])
+  {
+    def remote = [:]
+    remote.name = hostname
+    remote.host = hostaddress
+    remote.user = uName
+    remote.password = pass
+    remote.allowAnyHosts = true
+    sshPut remote: remote, from: 'src/crontabs/java_crontab', into: '/common/users/at1341/testing_cron'
+    sshCommand remote: remote, command: "crontab < /common/users/at1341/testing_cron/java_crontab"
+
+  }
+}
+
+
 node 
 {
   checkout scm
@@ -8,7 +25,7 @@ node
     withCredentials([usernamePassword(credentialsId: 'JAVA_RUTGERS', usernameVariable: 'uName', passwordVariable: 'pass')])
     {
       def remote = [:]
-      remote.name = 'java'
+      // remote.name = 'java'
       remote.host = 'java.cs.rutgers.edu'
       remote.user = uName
       remote.password = pass
@@ -26,7 +43,7 @@ node
     withCredentials([usernamePassword(credentialsId: 'PERL_RUTGERS', usernameVariable: 'uNamePerl', passwordVariable: 'passPerl')])
     {
       def remote = [:]
-      remote.name = 'perl'
+      // remote.name = 'perl'
       remote.host = 'perl.cs.rutgers.edu'
       remote.user = uNamePerl
       remote.password = passPerl
