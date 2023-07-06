@@ -27,17 +27,19 @@ node
     configVal = readYaml file: "servers/config.yaml"
   }
 
-  stage('Changing crontabs')
+
+  length = configVal['servers'].size()
+  for(i=0; i<length; i++)
   {
-    length = configVal['servers'].size()
-    for(i=0; i<length; i++)
+    stage("${configVal['servers'][i]['hostaddress']}")
     {
       server = configVal['servers'][i]
       echo "Changing the crontab on ${server['hostaddress']}"
       ChangeCrontab(server['id'], server['hostname'], server['hostaddress'], server['crontab_name'])
     }
-      
   }
+    
+
     // echo "configVal: " + configVal
 }
   //Server 1
