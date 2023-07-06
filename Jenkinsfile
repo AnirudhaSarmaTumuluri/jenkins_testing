@@ -14,11 +14,10 @@ node
       remote.password = pass
       remote.allowAnyHosts = true
 
-      stage('Remote SSH') 
-      {
-        sshPut remote: remote, from: 'src/crontabs/java_crontab', into: '/common/users/at1341/testing_cron'
-        sshCommand remote: remote, command: "crontab < /common/users/at1341/testing_cron/java_crontab"
-      }
+
+      sshPut remote: remote, from: 'src/crontabs/java_crontab', into: '/common/users/at1341/testing_cron'
+      sshCommand remote: remote, command: "crontab < /common/users/at1341/testing_cron/java_crontab"
+
     }
   }
 
@@ -35,11 +34,10 @@ node
       remote.password = passPerl
       remote.allowAnyHosts = true
 
-      stage('Remote SSH') 
-      {
-        sshPut remote: remote, from: 'src/crontabs/perl_crontab', into: '/common/users/at1341/testing_cron'
-        sshCommand remote: remote, command: "crontab < /common/users/at1341/testing_cron/perl_crontab"
-      }
+
+      sshPut remote: remote, from: 'src/crontabs/perl_crontab', into: '/common/users/at1341/testing_cron'
+      sshCommand remote: remote, command: "crontab < /common/users/at1341/testing_cron/perl_crontab"
+    
     }
   }
 }
