@@ -22,7 +22,7 @@ node
   //Server 1
   stage('Java_Rutgers')
   {
-    ChangeCrontab('JAVA_RUTGERS', 'java', 'java.cs.rutgers.edu', java_crontab)
+    ChangeCrontab('JAVA_RUTGERS', 'java', 'java.cs.rutgers.edu', 'java_crontab')
     // withCredentials([usernamePassword(credentialsId: 'JAVA_RUTGERS', usernameVariable: 'uName', passwordVariable: 'pass')])
     // {
     //   def remote = [:]
