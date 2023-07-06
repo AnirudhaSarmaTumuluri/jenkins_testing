@@ -20,9 +20,13 @@ node
   {
     checkout scm
   }
-  def configVal = readYaml file: "servers/config.yaml"
-
+  
   stage('Reading YAML')
+  {
+    def configVal = readYaml file: "servers/config.yaml"
+  }
+
+  stage('Changing crontabs')
   {
     length = configVal['servers'].size()
     for(i=0; i<length; i++)
