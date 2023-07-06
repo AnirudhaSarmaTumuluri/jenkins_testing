@@ -24,7 +24,7 @@ node
     for(i=0; i<length; i++)
     {
       test = configVal['servers'][i]
-      echo test
+      echo "${test}"
     }
     // echo "configVal: " + configVal
   }
