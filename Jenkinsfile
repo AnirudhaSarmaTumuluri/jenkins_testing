@@ -32,9 +32,9 @@ node
       ChangeCrontab(server['id'], server['hostname'], server['hostaddress'], server['crontab_name'])
     }
       
-    }
-    // echo "configVal: " + configVal
   }
+    // echo "configVal: " + configVal
+}
   //Server 1
   // stage('Java_Rutgers')
   // {
@@ -46,4 +46,4 @@ node
   // {
   //   ChangeCrontab('PERL_RUTGERS', 'perl', 'perl.cs.rutgers.edu', 'perl_crontab')
   // }
-}
+
