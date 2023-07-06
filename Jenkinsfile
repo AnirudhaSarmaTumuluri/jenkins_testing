@@ -23,7 +23,8 @@ node
     length = configVal['servers'].size()
     for(i=0; i<length; i++)
     {
-      echo configVal['servers'][i]
+      test = configVal['servers'][i]
+      echo test
     }
     // echo "configVal: " + configVal
   }
