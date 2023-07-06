@@ -21,7 +21,10 @@ node
   {
     def configVal = readYaml file: "servers/config.yaml"
     length = configVal['servers'].size()
-    echo "$length"
+    for(i=0; i<length; i++)
+    {
+      echo configVal['servers'][i]
+    }
     // echo "configVal: " + configVal
   }
   //Server 1
