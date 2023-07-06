@@ -20,10 +20,11 @@ node
   {
     checkout scm
   }
-  
+
+  def configVal = ''
   stage('Reading YAML')
   {
-    def configVal = readYaml file: "servers/config.yaml"
+    configVal = readYaml file: "servers/config.yaml"
   }
 
   stage('Changing crontabs')
