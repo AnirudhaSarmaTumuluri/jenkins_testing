@@ -14,7 +14,6 @@ def ChangeCrontab(creds_ID, hostname, hostaddress, crontab_name)
   }
 }
 
-
 node 
 {
   checkout scm
@@ -24,7 +23,6 @@ node
   {
     ChangeCrontab('JAVA_RUTGERS', 'java', 'java.cs.rutgers.edu', 'java_crontab')
   }
-
 
   // Server 2
   stage ('Perl_Rutgers')
