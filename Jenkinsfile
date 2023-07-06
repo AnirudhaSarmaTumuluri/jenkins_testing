@@ -17,16 +17,20 @@ def ChangeCrontab(creds_ID, hostname, hostaddress, crontab_name)
 node 
 {
   checkout scm
-  
+  stage('Reading YAML')
+  {
+    def configVal = readYaml file: "servers/config.yaml"
+    echo configVal
+  }
   //Server 1
-  stage('Java_Rutgers')
-  {
-    ChangeCrontab('JAVA_RUTGERS', 'java', 'java.cs.rutgers.edu', 'java_crontab')
-  }
+  // stage('Java_Rutgers')
+  // {
+  //   ChangeCrontab('JAVA_RUTGERS', 'java', 'java.cs.rutgers.edu', 'java_crontab')
+  // }
 
-  // Server 2
-  stage ('Perl_Rutgers')
-  {
-    ChangeCrontab('PERL_RUTGERS', 'perl', 'perl.cs.rutgers.edu', 'perl_crontab')
-  }
+  // // Server 2
+  // stage ('Perl_Rutgers')
+  // {
+  //   ChangeCrontab('PERL_RUTGERS', 'perl', 'perl.cs.rutgers.edu', 'perl_crontab')
+  // }
 }
