@@ -27,7 +27,6 @@ node
     configVal = readYaml file: "servers/config.yaml"
   }
 
-
   length = configVal['servers'].size()
   for(i=0; i<length; i++)
   {
@@ -38,19 +37,4 @@ node
       ChangeCrontab(server['id'], server['hostname'], server['hostaddress'], server['crontab_name'])
     }
   }
-    
-
-    // echo "configVal: " + configVal
 }
-  //Server 1
-  // stage('Java_Rutgers')
-  // {
-  //   ChangeCrontab('JAVA_RUTGERS', 'java', 'java.cs.rutgers.edu', 'java_crontab')
-  // }
-
-  // // Server 2
-  // stage ('Perl_Rutgers')
-  // {
-  //   ChangeCrontab('PERL_RUTGERS', 'perl', 'perl.cs.rutgers.edu', 'perl_crontab')
-  // }
-
