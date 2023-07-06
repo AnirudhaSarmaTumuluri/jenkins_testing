@@ -16,19 +16,24 @@ def ChangeCrontab(creds_ID, hostname, hostaddress, crontab_name)
 
 node 
 {
-  checkout scm
+  stage
+  {
+    checkout scm
+  }
+
   stage('Reading YAML')
   {
     def configVal = readYaml file: "servers/config.yaml"
     length = configVal['servers'].size()
-    for(i=0; i<length; i++)
-    {
-      server = configVal['servers'][i]
-      echo "Changing the crontab on ${server['hostaddress']}"
-      ChangeCrontab(server['id'], server['hostname'], server['hostaddress'], server['crontab_name'])
-      
-    }
     // echo "configVal: " + configVal
+  }
+
+  for(i=0; i<length; i++)
+  {
+    server = configVal['servers'][i]
+    echo "Changing the crontab on ${server['hostaddress']}"
+    // ChangeCrontab(server['id'], server['hostname'], server['hostaddress'], server['crontab_name'])
+    
   }
   //Server 1
   // stage('Java_Rutgers')
