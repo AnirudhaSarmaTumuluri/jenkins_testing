@@ -16,7 +16,7 @@ def ChangeCrontab(creds_ID, hostname, hostaddress, crontab_name)
 
 node 
 {
-  stage
+  stage('Checkout scm')
   {
     checkout scm
   }
