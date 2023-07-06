@@ -1,7 +1,7 @@
 node 
 {
   checkout scm
-
+  
   //Server 1
   stage('Java_Rutgers')
   {
@@ -13,8 +13,6 @@ node
       remote.user = uName
       remote.password = pass
       remote.allowAnyHosts = true
-
-
       sshPut remote: remote, from: 'src/crontabs/java_crontab', into: '/common/users/at1341/testing_cron'
       sshCommand remote: remote, command: "crontab < /common/users/at1341/testing_cron/java_crontab"
 
@@ -33,8 +31,6 @@ node
       remote.user = uNamePerl
       remote.password = passPerl
       remote.allowAnyHosts = true
-
-
       sshPut remote: remote, from: 'src/crontabs/perl_crontab', into: '/common/users/at1341/testing_cron'
       sshCommand remote: remote, command: "crontab < /common/users/at1341/testing_cron/perl_crontab"
     
