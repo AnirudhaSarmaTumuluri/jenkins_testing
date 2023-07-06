@@ -18,3 +18,21 @@ node {
   }
   }
 }
+
+node {
+  withCredentials([usernamePassword(credentialsId: 'PERL_RUTGERS', usernameVariable: 'uName', passwordVariable: 'pass')])
+  {
+  checkout scm
+  def remote = [:]
+  remote.name = 'perl'
+  remote.host = 'perl.cs.rutgers.edu'
+  remote.user = uName
+  remote.password = pass
+  remote.allowAnyHosts = true
+
+  stage('Remote SSH') {
+    sshPut remote: remote, from: 'src/shell/newcrontab', into: '/common/users/at1341/testing_cron'
+    sshCommand remote: remote, command: "crontab < /common/users/at1341/testing_cron/newcrontab"
+  }
+  }
+}
