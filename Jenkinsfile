@@ -22,7 +22,7 @@ node
     def configVal = readYaml file: "servers/config.yaml"
     for(i=0; i<configVal['servers'].size(); i++)
     {
-      echo configVal['servers'][i]
+      echo configVal
     }
     // echo "configVal: " + configVal
   }
