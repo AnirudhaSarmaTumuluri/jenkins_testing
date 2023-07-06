@@ -30,7 +30,7 @@ node
   length = configVal['servers'].size()
   for(i=0; i<length; i++)
   {
-    stage("${configVal['servers'][i]['hostaddress']}")
+    stage("${configVal['servers'][i]['hostname']}")
     {
       server = configVal['servers'][i]
       echo "Changing the crontab on ${server['hostaddress']}"
