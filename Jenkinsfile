@@ -23,8 +23,10 @@ node
     length = configVal['servers'].size()
     for(i=0; i<length; i++)
     {
-      test = configVal['servers'][i]
-      echo "${test['id']}"
+      server = configVal['servers'][i]
+      echo "Changing the crontab on ${server['hostaddress']}"
+      ChangeCrontab(server['id'], server['hostname'], server['hostaddress'], server['crontab_name'])
+      
     }
     // echo "configVal: " + configVal
   }
