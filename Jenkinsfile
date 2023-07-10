@@ -29,6 +29,7 @@ node
     {
       sh "ssh ubuntu@54.164.3.28 'ls -l'"
       sh "scp src/crontabs/ec2_crontab ubuntu@54.164.3.28:~/test"
+      sh "ssh ubuntu@54.164.3.28 'crontab < ~/test/ec2_crontab'"
     }
   }
 
