@@ -20,7 +20,7 @@ node
 {
   sshagent(['java_pkey_rutgers'])
   {
-    sh "ssh -tt at1341@java.cs.rutgers.edu 'ls -l'"
+    sh "ssh -tt -0 StrictHostKeyChecking=no at1341@java.cs.rutgers.edu 'ls -l'"
   }
   // stage('Checkout scm')
   // {
