@@ -20,7 +20,7 @@ def scpChangeCrontab(creds_ID, hostname, hostaddress, crontab_name)
 {
   sshagent(["${creds_ID}"])
   {
-    sh "scp src/crontabs/${crontab_name} ${hostname}/${hostaddress}:~/test/crontabs"
+    sh "scp src/crontabs/${crontab_name} ${hostname}@${hostaddress}:~/test/crontabs"
     sh "ssh ${hostname}@${hostaddress} 'crontab < /test/crontabs/${crontab_name}'"
   }
 }
