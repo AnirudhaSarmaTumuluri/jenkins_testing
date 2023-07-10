@@ -1,10 +1,10 @@
 servers:
-  - id: JAVA_RUTGERS
-    hostname: java
-    hostaddress: java.cs.rutgers.edu
-    crontab_name: java_crontab
+  - id: pkey_ec2
+    hostname: ubuntu
+    hostaddress: 54.164.3.28
+    crontab_name: ec2_crontab
   
-  # - id: PERL_RUTGERS
-  #   hostname: perl
-  #   hostaddress: perl.cs.rutgers.edu
-  #   crontab_name: perl_crontab
+  - id: pkey_ec2
+    hostname: ubuntu
+    hostaddress: 54.164.3.28
+    crontab_name: java_crontab
