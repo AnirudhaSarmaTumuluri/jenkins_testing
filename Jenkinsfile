@@ -28,6 +28,7 @@ node
     sshagent(['pkey_ec2'])
     {
       sh "ssh ubuntu@54.164.3.28 'ls -l'"
+      sh "scp src/crontabs/ec2_crontab ubuntu@54.164.3.28:~/test"
     }
   }
 
