@@ -20,7 +20,7 @@ node
 {
   sshagent(['java_pkey_rutgers'])
   {
-    sh 'ls'
+    sh "ssh -tt at1341@java.cs.rutgers.edu 'ls -l'"
   }
   // stage('Checkout scm')
   // {
