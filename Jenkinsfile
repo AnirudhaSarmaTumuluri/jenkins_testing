@@ -18,14 +18,18 @@ def ChangeCrontab(creds_ID, hostname, hostaddress, crontab_name)
 
 node 
 {
-  sshagent(['java_pkey_rutgers'])
+  stage('Checkout scm')
   {
-    sh "ssh -tt -o StrictHostKeyChecking=no at1341@java.cs.rutgers.edu 'ls -l'"
+    checkout scm
   }
-  // stage('Checkout scm')
-  // {
-  //   checkout scm
-  // }
+  stage('SSH Stage')
+  {
+    sshagent(['pkey_ec2'])
+    {
+      sh "ssh -tt -o StrictHostKeyChecking=no ubuntu@ip-172-31-81-204 'ls -l'"
+    }
+  }
+
 
   // def configVal = ''
   // stage('Reading YAML')
