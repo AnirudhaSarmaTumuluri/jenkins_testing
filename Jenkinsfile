@@ -26,7 +26,7 @@ node
   {
     sshagent(['pkey_ec2'])
     {
-      sh "ssh -tt -o StrictHostKeyChecking=no ubuntu@ip-172-31-81-204 'ls -l'"
+      sh "ssh -tt -o StrictHostKeyChecking=no ubuntu@54.164.3.28 'ls -l'"
     }
   }
 
