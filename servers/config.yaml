@@ -4,7 +4,7 @@ servers:
     hostaddress: java.cs.rutgers.edu
     crontab_name: java_crontab
   
-  - id: PERL_RUTGERS
-    hostname: perl
-    hostaddress: perl.cs.rutgers.edu
-    crontab_name: perl_crontab
+  # - id: PERL_RUTGERS
+  #   hostname: perl
+  #   hostaddress: perl.cs.rutgers.edu
+  #   crontab_name: perl_crontab

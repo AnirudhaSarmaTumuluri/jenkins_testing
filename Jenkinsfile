@@ -12,29 +12,35 @@ def ChangeCrontab(creds_ID, hostname, hostaddress, crontab_name)
     sshCommand remote: remote, command: "crontab < /common/users/at1341/testing_cron/${crontab_name}"
 
   }
+
+
 }
 
 node 
 {
-  stage('Checkout scm')
+  sshagent(['java_pkey_rutgers'])
   {
-    checkout scm
+    sh 'ls'
   }
+  // stage('Checkout scm')
+  // {
+  //   checkout scm
+  // }
 
-  def configVal = ''
-  stage('Reading YAML')
-  {
-    configVal = readYaml file: "servers/config.yaml"
-  }
+  // def configVal = ''
+  // stage('Reading YAML')
+  // {
+  //   configVal = readYaml file: "servers/config.yaml"
+  // }
 
-  length = configVal['servers'].size()
-  for(i=0; i<length; i++)
-  {
-    stage("${configVal['servers'][i]['hostname']}")
-    {
-      server = configVal['servers'][i]
-      echo "Changing the crontab on ${server['hostaddress']}"
-      ChangeCrontab(server['id'], server['hostname'], server['hostaddress'], server['crontab_name'])
-    }
-  }
+  // length = configVal['servers'].size()
+  // for(i=0; i<length; i++)
+  // {
+  //   stage("${configVal['servers'][i]['hostname']}")
+  //   {
+  //     server = configVal['servers'][i]
+  //     echo "Changing the crontab on ${server['hostaddress']}"
+  //     ChangeCrontab(server['id'], server['hostname'], server['hostaddress'], server['crontab_name'])
+  //   }
+  // }
 }
