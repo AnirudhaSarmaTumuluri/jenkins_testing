@@ -1,10 +1,10 @@
 servers:
   - id: pkey_ec2
     hostname: ubuntu
-    hostaddress: 18.206.119.97
+    hostaddress: 3.84.98.13
     crontab_name: ec2_crontab
   
   - id: pkey_ec2
     hostname: ubuntu
-    hostaddress: 18.206.119.97
+    hostaddress: 3.84.98.13
     crontab_name: java_crontab
